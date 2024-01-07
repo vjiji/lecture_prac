@@ -1,0 +1,52 @@
+body {
+  background-image: url("https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/webjong/images/background.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.weather {
+  display: flex;
+
+  align-items: center;
+
+  margin-right: 30px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  position: fixed;
+  position: fixed;
+
+  position: fixed;
+
+  position: fixed;
+  left: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  bottom: 0;
+  width: 100%;
+
+  width: 100%;
+  width: 100%;
+
+  text-align: center;
+  text-align: center;
+}
+
+* {
+  font-family: "Bungee Spice", sans-serif;
+}
