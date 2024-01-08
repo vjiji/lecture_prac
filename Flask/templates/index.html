@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .ball {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+        color: white;
+        line-height: 50px;
+        text-align: center;
+        margin: 5px;
+        font-weight: bold;
+      }
+      .random_ball {
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        border-radius: 50%;
+        display: inline-block;
+        color: black;
+        line-height: 50px;
+        text-align: center;
+        margin: 5px;
+        font-weight: bold;
+      }
+      .container {
+        text-align: center;
+        padding: 50px;
+      }
+
+      img {
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>안녕, {{data.name}}야</h1>
+    <img src="{{url_for('static', filename='coinman.png')}}" alt="" />
+    <h2>랜덤 로또 번호 : {{data.random_lotto}}</h2>
+    <h2>맞은 번호: {{data.common_count}}</h2>
+
+    <div class="container">
+      <p>로또 번호</p>
+      <div id="balls">
+        {% for element in data.lotto %}
+        <div class="ball">{{ element|e }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="container">
+      <p>추천 로또 번호</p>
+      <div id="balls">
+        {% for element in data.random_lotto %}
+        <div class="random_ball">{{ element|e }}</div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if data.common_count == 6 %}
+    <h2>{{data.common_count}}개 맞았습니다. 1등!</h2>
+    {% elif data.common_count == 5 %}
+    <h2>{{data.common_count}}개 맞았습니다. 2등!</h2>
+    {% elif data.common_count == 4 %}
+    <h2>{{data.common_count}}개 맞았습니다. 3등!</h2>
+    {% elif data.common_count == 3 %}
+    <h2>{{data.common_count}}개 맞았습니다. 4등!</h2>
+    {% else %}
+    <h2>{{data.common_count}}개 맞았습니다. 탈락..</h2>
+    {% endif %}
+  </body>
+</html>
