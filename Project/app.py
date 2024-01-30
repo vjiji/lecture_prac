@@ -26,8 +26,8 @@ with app.app_context():
 
 @app.route("/")
 def home():
-    name = '최지웅'
-    motto = "행복해서 웃는게 아니라 웃어서 행복합니다."
+    name = '강성지'
+    motto = "최선을 다해 즐겁게 살자!"
 
     context = {
         "name": name,
@@ -68,6 +68,16 @@ def music_create():
     db.session.add(song)
     db.session.commit()
     return redirect(url_for('render_music_filter', username=username_receive))
+
+@app.route('/music/delete')
+def music_delete():
+    id_receive = request.args.get('delete_id')
+    print(id_receive, 'test1234')
+    delete_data = Song.query.filter_by(id=id_receive).first()
+    db.session.delete(delete_data)
+    db.session.commit()
+    song_list = Song.query.all()
+    return redirect(url_for('music'))
 
 if __name__ == "__main__":
     app.run(debug=True)
