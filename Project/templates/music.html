@@ -97,7 +97,6 @@
             멜로디쉐어에서 소중한 사람과 함께 공유하세요.
           </p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <!-- Button trigger modal -->
             <button
               type="button"
               class="btn btn-danger"
@@ -106,6 +105,11 @@
             >
               음악 추가
             </button>
+            <a href="{{ url_for('music')}}">
+              <button type="button" class="btn btn-outline-primary">
+                전체 리스트 보기
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -198,53 +202,20 @@
               <h5 class="card-title">{{music.title}}</h5>
               <p class="card-text">{{ music.artist }}</p>
               <p class="card-text">{{ music.username }}</p>
+              <form action="{{url_for('music_delete')}}" method="GET">
+                <button
+                  type="submit"
+                  class="btn btn-danger"
+                  name="delete_id"
+                  value="{{music.id}}"
+                >
+                  삭제하기
+                </button>
+              </form>
             </div>
           </div>
         </div>
         {% endfor %}
-
-        <div class="col">
-          <div class="card h-100">
-            <img
-              src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/webjong/ive.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Love Dive</h5>
-              <p class="card-text">아이브(IVE)</p>
-              <p class="card-text">추천 by 최지웅</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img
-              src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/webjong/ive.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Love Dive</h5>
-              <p class="card-text">아이브(IVE)</p>
-              <p class="card-text">추천 by 최지웅</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img
-              src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/webjong/ive.jpg"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Love Dive</h5>
-              <p class="card-text">아이브(IVE)</p>
-              <p class="card-text">추천 by 최지웅</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
